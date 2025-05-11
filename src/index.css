@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #005f99;
+  --secondary-color: #003a5f;
+  --accent-color: #00a3e0;
+  --light-gray: #f2f2f2;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #666666;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Tajawal', 'Poppins', sans-serif;
+  color: #333;
+  background-color: var(--white); /* Added white background */
+}
+
+/* RTL support */
+html[dir="rtl"] body {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[dir="ltr"] body {
+  font-family: 'Poppins', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#005f99] hover:bg-[#003a5f] text-white font-medium py-3 px-6 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-[#f2f2f2] text-[#005f99] font-medium py-3 px-6 border border-[#005f99] rounded-2xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .btn-emergency {
+    @apply bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg animate-pulse transform hover:-translate-y-1;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-[#005f99];
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8;
+  }
+  
+  .service-card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden transform hover:-translate-y-2;
+  }
+  
+  .testimonial-card {
+    @apply bg-white rounded-2xl shadow-md p-6 md:p-8 hover:shadow-lg transition-all duration-300;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* Button animations */
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 95, 153, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 95, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 95, 153, 0);
+  }
+}
